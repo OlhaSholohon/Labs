@@ -6,14 +6,14 @@
 #define n1 6
 
 using namespace std;
-
+//вести дані і ключ, відсортувати за зростанням ключів, ввести 2 нових записи не змінюючи попередні 
 typedef struct a
 {
 	int key;
 	char dani[20];
 		
 } Key;
-
+//сортування ключів
 void sort( Key a[])
 {
     int i,j;
@@ -51,6 +51,7 @@ cout<<setw(8)<<"key"<<" | "<<setw(0)<<setw(20)<<"Dani"<<" | "<<setw(0)<<endl;
 for(i=0;i<n;i++){
 	cout<<setw(8)<<x[i].key<<" | "<<setw(0)<<setw(20)<<x[i].dani<<" | "<<setw(0)<<endl;
 }
+//додавання 2 нових значень
 cout<<"Enter two new value"<<endl;
 for( i=n;i<n1;i++)
 {
