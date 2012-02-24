@@ -1,3 +1,5 @@
+//РјРѕРґРёС„С–РєСѓРІР°С‚Рё РїСЂРѕРіСЂР°РјСѓ РІРёРєРѕСЂРёСЃС‚Р°РІС€Рё С‚Р°Рј РІРєР°Р·С–РІРЅРёРє РЅР° С„СѓРЅРєС†С–СЋ, РїРµСЂРµРіСЂСѓР·РєСѓ С„СѓРЅРєС†С–Р№,
+//С„СѓРЅРєС†С–С— Р·С– Р·РјС–РЅРЅРѕСЋ РєС–Р»СЊРєС–СЃС‚СЋ РїР°СЂР°РјРµС‚СЂС–РІ,С„СѓРЅРєС†С–С— Р·С– Р·РЅР°С‡РµРЅРЅСЏРјРё default
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,13 +13,17 @@ typedef struct queueNode node;
 typedef queueNode *queunodeptr;
  
  /* function prototypes */
+ //СЏРєС‰Рѕ РїСЂР°РїРѕСЂРµС†СЊ С„СѓРЅРєС†С–С— РґРѕСЂС–РІРЅСЋС” 0 РѕР·РЅР°С‡Р°С” РІРІРѕРґРёР»РёСЃСЊ СЃРёРјРІРѕР»Рё
 void printQueue(queunodeptr,bool flag=0);
  int isEmpty(queunodeptr);
- char dequeue(queunodeptr *, queunodeptr *);//видалити вузол з черги
- void enqueue (queunodeptr *, queunodeptr *, char);//поставити вузол у чергу
+ char dequeue(queunodeptr *, queunodeptr *);//РІРёРґР°Р»РёС‚Рё РІСѓР·РѕР» Р· С‡РµСЂРіРё
+ //РїРµСЂРµРІР°РЅС‚Р°Р¶РµРЅРЅСЏ С„СѓРЅРєС†С–Р№ , СЂРµР°Р»С–Р·РѕРІР°РЅРѕ РІРёР±С–СЂ РІРІРѕРґРёС‚Рё СЃРёРјРІРѕР»Рё С‡Рё С†РёС„СЂРё
+ void enqueue (queunodeptr *, queunodeptr *, char);//РїРѕСЃС‚Р°РІРёС‚Рё РІСѓР·РѕР» Сѓ С‡РµСЂРіСѓ
   void enqueue (queunodeptr *, queunodeptr *, int);
  void instructions (void);
+ //РІРєР°Р·С–РІРЅРёРє РЅР° С„СѓРЅРєС†С–СЋ
  void ( *pointer )(void);
+ //С„СѓРЅРєС†С–СЏ РѕР±С‡РёСЃР»СЋС” СЃСѓРјСѓ РµР»РµРјРµРЅС‚С–РІ СЏРєС– РїРѕС‚С–Рј РїРµСЂРµРґР°РґСѓС‚СЊСЃСЏ РІ С‡РµСЂРіСѓ
  int f(int n,int a, ...);
 using namespace std;
 int main () {
@@ -30,7 +36,7 @@ int main () {
 	cout<<"What do you want to enter integer or char (i/c)";
 	cin>>choice_push;
 	if(choice_push=='c'){
-	pointer = &instructions; /* берем адрес функции */
+	pointer = &instructions; /* Р±РµСЂРµРј Р°РґСЂРµСЃ С„СѓРЅРєС†РёРё */
 pointer();
 	cout<<"? ";
 	cin>>choice;
@@ -51,14 +57,14 @@ pointer();
             break;
 		default:
 			cout<<"Invalid choice."<<endl<<endl;
-			pointer = &instructions; /* берем адрес функции */
+			pointer = &instructions; /* Р±РµСЂРµРј Р°РґСЂРµСЃ С„СѓРЅРєС†РёРё */
 pointer();
 			break; }
 		cout<<"?";
 		cin>>choice;}
 		cout<<"End of run."<<endl;
 	}else{
-		pointer = &instructions; /* берем адрес функции */
+		pointer = &instructions; /* Р±РµСЂРµРј Р°РґСЂРµСЃ С„СѓРЅРєС†РёРё */
 pointer();
 	cout<<"? ";
 	cin>>choice;
@@ -84,7 +90,7 @@ pointer();
 			break;
 		default:
 			cout<<"Invalid choice."<<endl<<endl;
-			pointer = &instructions; /* берем адрес функции */
+			pointer = &instructions; /* Р±РµСЂРµРј Р°РґСЂРµСЃ С„СѓРЅРєС†РёРё */
 pointer();
 			break; }
 		cout<<"?";
@@ -103,11 +109,11 @@ void instructions(void)
 
 void enqueue(queunodeptr *headPtr, queunodeptr *tailPtr,char value) {
 	queunodeptr newPtr;
-	newPtr =new node;// створення нового вузла
+	newPtr =new node;// СЃС‚РІРѕСЂРµРЅРЅСЏ РЅРѕРІРѕРіРѕ РІСѓР·Р»Р°
 	if (newPtr != NULL) { 
-		newPtr->data = static_cast<int>(value); //присвоєння значееня яке необхідно поставити у чергу
+		newPtr->data = static_cast<int>(value); //РїСЂРёСЃРІРѕС”РЅРЅСЏ Р·РЅР°С‡РµРµРЅСЏ СЏРєРµ РЅРµРѕР±С…С–РґРЅРѕ РїРѕСЃС‚Р°РІРёС‚Рё Сѓ С‡РµСЂРіСѓ
 		newPtr->nextPtr = NULL;
- if (isEmpty(*headPtr))//перевірка чи черга пуста
+ if (isEmpty(*headPtr))//РїРµСЂРµРІС–СЂРєР° С‡Рё С‡РµСЂРіР° РїСѓСЃС‚Р°
 	 *headPtr = newPtr; 
  else
     (*tailPtr)->nextPtr = newPtr;
@@ -117,11 +123,11 @@ void enqueue(queunodeptr *headPtr, queunodeptr *tailPtr,char value) {
  }
 void enqueue(queunodeptr *headPtr, queunodeptr *tailPtr,int value) {
 	queunodeptr newPtr;
-	newPtr =new node;// створення нового вузла
+	newPtr =new node;// СЃС‚РІРѕСЂРµРЅРЅСЏ РЅРѕРІРѕРіРѕ РІСѓР·Р»Р°
 	if (newPtr != NULL) { 
-		newPtr->data = value; //присвоєння значееня яке необхідно поставити у чергу
+		newPtr->data = value; //РїСЂРёСЃРІРѕС”РЅРЅСЏ Р·РЅР°С‡РµРµРЅСЏ СЏРєРµ РЅРµРѕР±С…С–РґРЅРѕ РїРѕСЃС‚Р°РІРёС‚Рё Сѓ С‡РµСЂРіСѓ
 		newPtr->nextPtr = NULL;
- if (isEmpty(*headPtr))//перевірка чи черга пуста
+ if (isEmpty(*headPtr))//РїРµСЂРµРІС–СЂРєР° С‡Рё С‡РµСЂРіР° РїСѓСЃС‚Р°
 	 *headPtr = newPtr; 
  else
     (*tailPtr)->nextPtr = newPtr;
@@ -129,14 +135,14 @@ void enqueue(queunodeptr *headPtr, queunodeptr *tailPtr,int value) {
 	else
 	cout<<value<<" not inserted. No memory available."<<endl;
  }
-char dequeue(queunodeptr *headPtr, queunodeptr *tailPtr) {//функція видаляє перший вузол з черги
+char dequeue(queunodeptr *headPtr, queunodeptr *tailPtr) {//С„СѓРЅРєС†С–СЏ РІРёРґР°Р»СЏС” РїРµСЂС€РёР№ РІСѓР·РѕР» Р· С‡РµСЂРіРё
 	char value;
 	queunodeptr tempPtr;
-    value = (*headPtr)->data;//зберегти дані
-    tempPtr = *headPtr;// звільнення вільної пам'яті
-    *headPtr = (*headPtr)->nextPtr;//*headPtr вказує на новий перший вузол черги
-	if (*headPtr == NULL) *tailPtr = NULL;// якщо *headPtr вказує на 0 встановити *tailPtr на 0
-	free(tempPtr); // вивільнити блок пам'яті на який вказує tempPtr
+    value = (*headPtr)->data;//Р·Р±РµСЂРµРіС‚Рё РґР°РЅС–
+    tempPtr = *headPtr;// Р·РІС–Р»СЊРЅРµРЅРЅСЏ РІС–Р»СЊРЅРѕС— РїР°Рј'СЏС‚С–
+    *headPtr = (*headPtr)->nextPtr;//*headPtr РІРєР°Р·СѓС” РЅР° РЅРѕРІРёР№ РїРµСЂС€РёР№ РІСѓР·РѕР» С‡РµСЂРіРё
+	if (*headPtr == NULL) *tailPtr = NULL;// СЏРєС‰Рѕ *headPtr РІРєР°Р·СѓС” РЅР° 0 РІСЃС‚Р°РЅРѕРІРёС‚Рё *tailPtr РЅР° 0
+	free(tempPtr); // РІРёРІС–Р»СЊРЅРёС‚Рё Р±Р»РѕРє РїР°Рј'СЏС‚С– РЅР° СЏРєРёР№ РІРєР°Р·СѓС” tempPtr
 	return value; }
 
 int isEmpty(queunodeptr headPtr) {
@@ -157,8 +163,8 @@ cout<<"The queue is : "<<endl;
  cout<<"NULL"<<endl<<endl; }
 }
 int f(int n, int a, ...){
-	 va_list p; int sum=0;            //--объявление указателя
-    va_start(p, n); int b;           //--инициализация указателя
+	 va_list p; int sum=0;            //РѕРіРѕР»РѕС€РµРЅРЅСЏ РІРєР°Р·С–РІРЅРёРєР°
+    va_start(p, n); int b;           //С–РЅС–С†С–Р°Р»С–Р·Р°С†С– РІРєР°Р·С–РІРЅРёРєР°
   while(n--)           
     {
 		b=va_arg(p,int);
