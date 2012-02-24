@@ -4,7 +4,7 @@
 #include <iomanip>
 #define n 3
 using namespace std;
-
+//роздрукувати у порядку зростання плану, визначити дні з найбільшим і найменшим відсотком виконання плану
 typedef struct a
 {
 	int day;
@@ -13,7 +13,7 @@ typedef struct a
        int percent;
 		
 } Group;
-
+//сортування у порядку зростання плану
 void sort(Group a[])
 {
     int i,j;
@@ -48,7 +48,7 @@ for(i=0;i<n;i++){
 	cin>>x[i].output;
 }
 
-
+// обрахунок відсотку виконання
 for(i=0;i<n;i++){
 	x[i].percent=(x[i].output*100)/x[i].plan;
 }
@@ -58,6 +58,7 @@ cout<<setw(10)<<"Number"<<" | "<<setw(0)<<setw(6)<<"plan"<<" | "<<setw(0)<<setw(
 for(i=0;i<n;i++){
 	cout<<setw(10)<<x[i].day<<" | "<<setw(0)<<setw(6)<<x[i].plan<<" | "<<setw(0)<<setw(12)<<x[i].output<<" | "<<setw(0)<<setw(8)<<x[i].percent<<" | "<<setw(0)<<endl;}
 int max,pos;
+//знаходження дня з найвищим відсотком виконання
 max=x[0].percent;pos=0;
 	for(i=0;i<n;i++){
 		if(x[i].percent>max){
@@ -69,6 +70,7 @@ max=x[0].percent;pos=0;
 	cout<<"Day which have the biggest percent"<<endl;
 		cout<<setw(10)<<x[pos].day<<" | "<<setw(0)<<setw(6)<<x[pos].plan<<" | "<<setw(0)<<setw(12)<<x[pos].output<<" | "<<setw(0)<<setw(8)<<x[pos].percent<<" | "<<setw(0)<<endl;
 		int min;
+//знаходження дня з найнижчим відсотком виконання
 min=x[0].percent;pos=0;
 	for(i=0;i<n;i++){
 		if(x[i].percent<min){
